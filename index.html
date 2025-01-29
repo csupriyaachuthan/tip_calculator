@@ -31,7 +31,8 @@
                                 <option value="35">35%</option>
                             </select>
                         </div>
-                        <button type="button" class="btn btn-primary w-100" onclick="calculateTip()">Calculate Total</button>
+                        <button type="button" class="btn btn-success" onclick="calculateTip()">Calculate Total</button>
+                        <button type="button" class="btn btn-danger" onclick="reset()">Reset</button>
                         <div class="mt-4 p-3 border rounded bg-white">
                             <h5>Bill Summary</h5>
                             <p>Bill Amount: <span id="billValue">-</span></p>
@@ -46,6 +47,13 @@
     </div>
 
     <script>
+        function reset(){
+            document.getElementById("billAmount").value = "";
+            document.getElementById("tipPercentage").value = "15";
+            document.getElementById("billValue").innerText = "-";
+            document.getElementById("tipValue").innerText = "-";
+            document.getElementById("totalValue").innerText = "-";
+        }
         function calculateTip() {
             let bill = parseFloat(document.getElementById("billAmount").value);
             let tipPercent = parseFloat(document.getElementById("tipPercentage").value);
